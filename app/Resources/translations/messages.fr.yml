@@ -1,3 +1,4 @@
 access_account: Accédez à votre compte de joueur
-name: nom
-price: prix
+name_label: nom
+price_label: prix
+send_label : envoyer

@@ -30,10 +30,11 @@ class ContactController extends Controller
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
 
-            return $this->render('hangman/product.html.twig',[
-            'formView'=> $form->createView()
+            return $this->render('hangman/product.html.twig', [
+                'formView' => $form->createView()
 
-        ]);
+            ]);
+        }
     }
 
 

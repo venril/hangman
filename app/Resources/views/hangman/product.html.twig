@@ -3,7 +3,11 @@
 {% block content %}
 
  <h2>Produit</h2>
+{{ form_start(formView) }}
+ {{ form_errors(formView) }}
+ {{ form_row(formView.name,'name_label') }}
+ {{ form_row(formView.price) }}
+ {{ form_end(formView) }}
 
- {{ form(formView) }}
 
 {% endblock %}

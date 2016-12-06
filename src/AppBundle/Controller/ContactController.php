@@ -8,13 +8,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AppBundle\Model\Product;
 use AppBundle\Model\Contact;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 
 class ContactController extends Controller
 {
     /**
-    * @Route("/{_locale}/contacttt", name="contactold")
+    * @Route("/{_locale}/oldcontact", name="oldcontact")
     */
     public function contactoldAction(){
         return $this->render('hangman/contact.html.twig');
@@ -47,14 +48,18 @@ class ContactController extends Controller
             $contact = new Contact();
             $form = $this->createForm(ContactType::class, $contact);
             $form->add('send',SubmitType::class);
-            $form->handleRequest($request);
             if ($form->isSubmitted() && $form->isValid()) {
+                $rootDir = $this->getParameter('kernel.root.dir');
+                $datadir = $rootDir.'/Resources/data';
 
+                $fileSystem = new Filesystem();
+                $fileSystem = dumpFile($datadir.'/contact.txt', $contact->getSurName());
+            }
+            $form->handleRequest($request);
                 return $this->render('hangman/contact.html.twig', [
                     'formView' => $form->createView()
-
                 ]);
-            }
+
     }
 
 

@@ -1,4 +1,9 @@
 {% extends 'body.html.twig'  %}
 {% block content %}
-Mes contacts
+    <h2>Produit</h2>
+    {{ form_start(formView) }}
+    {{ form_errors(formView) }}
+    {{ form_row(formView.name) }}
+    {{ form_row(formView.price) }}
+    {{ form_end(formView) }}
 {% endblock %}

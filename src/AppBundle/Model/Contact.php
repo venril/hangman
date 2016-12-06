@@ -25,7 +25,6 @@ class Contact
     private $pseudo;
 
     /**
-     * @Assert\NotBlank()
      * @Assert\Length(max=40)
      */
 

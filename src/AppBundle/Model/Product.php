@@ -1,9 +1,20 @@
 <?php
 namespace AppBundle\Model;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class Product
 {
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Length(max=40)
+     */
     public $name;
+
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Length(min=1)
+     */
+
     private $price;
 
     /**
@@ -19,7 +30,7 @@ class Product
      */
     public function setPrice($price)
     {
-        $this->price = $price;
+        $this->price = (float)$price;
     }
 
 }

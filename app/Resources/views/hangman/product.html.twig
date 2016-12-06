@@ -1,2 +1,9 @@
 
- {{ "access_account"|trans }}
+{% extends 'body.html.twig'  %}
+{% block content %}
+
+ <h2>Produit</h2>
+
+ {{ form(formView) }}
+
+{% endblock %}

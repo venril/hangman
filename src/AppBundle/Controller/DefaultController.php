@@ -31,6 +31,13 @@ class DefaultController extends Controller
         return $this->render('hangman/game.html.twig');
     }
     /**
+     * @Route("/signin", name="signin")
+     */
+    public function connecAction()
+    {
+        return $this->render('hangman/connec.html.twig');
+    }
+    /**
      * @Route("/hello/{name}", name="hangman")
      */
 
